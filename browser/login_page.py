@@ -41,6 +41,7 @@ class LoginPage(BasePage):
 
         self.click(self.SELECT_BUTTON)
 
+
     def login_to_application(self):
 
         self.click_login()
