@@ -17,3 +17,13 @@ class Config:
     HEADLESS = False
 
     BASE_FOLDER_PATH = r"C:\Users\rishabh.mathur.ext\Videos\Main_Processes\PO_Processing"
+
+
+    DOCUMENT_DATA_URL = (
+        "https://mks-docvalidator-backend-prod-"
+        "hae9d6ecbmfebmdh.eastus2-01.azurewebsites.net"
+    )
+
+    SECURITY_GROUP_ID = (
+        "6f2e215d-5311-4d52-8793-bcb4e1f848c7"
+    )
