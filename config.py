@@ -16,7 +16,11 @@ class Config:
 
     HEADLESS = False
 
-    BASE_FOLDER_PATH = r"C:\Users\rishabh.mathur.ext\Videos\Main_Processes\PO_Processing"
+    BASE_FOLDER_PATH = r"C:\Users\rishabh.mathur.ext\Videos\Main_Processes\Input"
+
+    VALIDATION_REPORT_PATH = (
+        r"C:\Users\rishabh.mathur.ext\Videos\Main_Processes\Validation"
+    )
 
 
     DOCUMENT_DATA_URL = (

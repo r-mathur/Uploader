@@ -39,10 +39,10 @@ class TrackerService:
 
     @staticmethod
     def update_tracker(
-        report_path,
-        file_name,
-        upload_status="",
-        extraction_status=""
+            report_path,
+            file_name,
+            upload_status="",
+            extraction_status=""
     ):
 
         workbook = load_workbook(
@@ -51,24 +51,42 @@ class TrackerService:
 
         sheet = workbook.active
 
-        next_row = (
-            sheet.max_row + 1
-        )
+        file_found = False
 
-        sheet.cell(
-            row=next_row,
-            column=1
-        ).value = file_name
+        for row in range(
+                2,
+                sheet.max_row + 1
+        ):
 
-        sheet.cell(
-            row=next_row,
-            column=2
-        ).value = upload_status
+            existing_file = sheet.cell(
+                row=row,
+                column=1
+            ).value
 
-        sheet.cell(
-            row=next_row,
-            column=3
-        ).value = extraction_status
+            if existing_file == file_name:
+
+                if upload_status:
+                    sheet.cell(
+                        row=row,
+                        column=2
+                    ).value = upload_status
+
+                if extraction_status:
+                    sheet.cell(
+                        row=row,
+                        column=3
+                    ).value = extraction_status
+
+                file_found = True
+
+                break
+
+        if not file_found:
+            sheet.append([
+                file_name,
+                upload_status,
+                extraction_status
+            ])
 
         workbook.save(
             report_path
